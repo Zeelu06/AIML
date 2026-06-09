@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Customer Data</title>
+  </head>
+  <body>
+    <h1>Access Customer Data</h1>
+    <form action="/" method="post">
+      <label>Enter Tier Type :</label>
+      <input type="text" name="loyalty" required />
+
+      <button type="submit">Search</button>
+    </form>
+    <h2>Result</h2>
+    <p>{{ loyalty }}</p>
+  </body>
+</html>

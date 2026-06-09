@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Todo App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f2f5;
+        display: flex;
+        justify-content: center;
+        padding: 40px;
+      }
+      .container {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 500px;
+      }
+      h1 {
+        color: #333;
+        text-align: center;
+      }
+      .add-btn {
+        display: block;
+        text-align: center;
+        background-color: #450b0d;
+        color: white;
+        padding: 10px;
+        border-radius: 8px;
+        text-decoration: none;
+        margin-bottom: 20px;
+      }
+      .add-btn:hover {
+        background-color: #45a049;
+      }
+      .task-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f9f9f9;
+        padding: 12px 15px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        border-left: 4px solid #4caf50;
+      }
+      .task-name {
+        font-size: 16px;
+        color: #333;
+      }
+      .actions a {
+        text-decoration: none;
+        padding: 6px 12px;
+        border-radius: 5px;
+        margin-left: 5px;
+        font-size: 14px;
+      }
+      .update-btn {
+        background-color: #d962e6;
+        color: white;
+      }
+      .update-btn:hover {
+        background-color: #3e90e1;
+      }
+      .delete-btn {
+        background-color: #3b0602;
+        color: white;
+      }
+      .delete-btn:hover {
+        background-color: #86be8a;
+      }
+      .no-task {
+        text-align: center;
+        color: #c38989;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Todo List</h1>
+      <a href="/add" class="add-btn">+ Add Task</a>
+
+      {% if tasks %} {% for task in tasks %}
+      <div class="task-item">
+        <span class="task-name">{{ loop.index }}. {{ task }}</span>
+        <div class="actions">
+          <a href="/update/{{ loop.index0 }}" class="update-btn">Update</a>
+          <a href="/delete/{{ loop.index0 }}" class="delete-btn">Delete</a>
+        </div>
+      </div>
+      {% endfor %} {% else %}
+      <p class="no-task">No tasks yet. Click Add Task to begin!</p>
+      {% endif %}
+    </div>
+  </body>
+</html>
